@@ -1,0 +1,36 @@
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+.env*
+
+# Build output
+dist/
+build/
+out/
+*.log
+
+# Dependency lock files
+package-lock.json
+
+
+# IDE/Editor files
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.bak
+
+# Logs and testing files
+logs/
+test/
+
+# macOS-specific
+.DS_Store
+
+# Windows-specific
+Thumbs.db
