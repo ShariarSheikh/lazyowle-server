@@ -10,6 +10,7 @@
     "typeRoots": ["./app/types", "./node_modules/@types"],
     "resolveJsonModule": true,
     "outDir": "./build",
+    "rootDir": "./app",
     "removeComments": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
