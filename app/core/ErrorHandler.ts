@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from 'express'
-import ApiResponse from '../core/ApiResponse'
+import ApiResponse from './ApiResponse'
 
 //------------------------------------------------
 
