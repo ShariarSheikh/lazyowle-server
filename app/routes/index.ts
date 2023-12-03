@@ -1,7 +1,6 @@
-import { Router } from 'express';
-import apiKey from '../auth/apiKey';
-import imgBgRemove from './img-bg-remove';
-
+import { Router } from 'express'
+import apiKey from '../auth/apiKey'
+import sizeReducer from './img-size-reducer'
 
 const router = Router()
 
@@ -20,7 +19,6 @@ router.use(apiKey)
 //-------------------------------------------
 
 // Auth
-router.use('/api/image', imgBgRemove)
-
+router.use('/api/image', sizeReducer)
 
 export default router

@@ -5,6 +5,5 @@ export default {
     .keys({
       ['x-api-key']: Joi.string().required()
     })
-    .unknown(true),
-
+    .unknown(true)
 }

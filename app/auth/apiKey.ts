@@ -5,7 +5,6 @@ import asyncHandler from '../helpers/asyncHandler'
 import validator, { ValidationSource } from '../helpers/validator'
 import schema from './schema'
 
-
 const apiKey = Router()
 
 apiKey.use(
@@ -13,7 +12,6 @@ apiKey.use(
   asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
     const response = new ApiResponse(res)
     const apiKeyHeader = req.headers['x-api-key']
-
 
     if (API_KEY !== apiKeyHeader) return response.unauthorized('Please provide a valid api key')
 

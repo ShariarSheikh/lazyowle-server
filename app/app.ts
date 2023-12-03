@@ -5,8 +5,6 @@ import router from './routes'
 
 const app = Express()
 
-
-
 //Middleware
 app.use(rootMiddleware.jsonParser, rootMiddleware.urlencoded, rootMiddleware.corsUrl)
 //ROUTER

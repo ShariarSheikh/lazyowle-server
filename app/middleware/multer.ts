@@ -1,11 +1,7 @@
-import fs from 'fs'
 import multer from 'multer'
+import path from 'path'
 
-export const fileUploadFolderPath = '/tmp/'
-
-if (!fs.existsSync(fileUploadFolderPath)) {
-  fs.mkdirSync(fileUploadFolderPath)
-}
+export const fileUploadFolderPath = './tmp/'
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -18,13 +14,14 @@ const storage = multer.diskStorage({
 
 const upload = multer({
   storage,
+  dest: fileUploadFolderPath,
   limits: {
     fileSize: 5 * 1024 * 1024 // 5 MB
   },
   fileFilter: (req, file, cb) => {
     const allowedFileExtensions = ['.png', '.jpeg', '.webp', '.jpg', '.avif']
 
-    const fileExtension = '.' + file.originalname.split('.').pop()
+    const fileExtension = path.extname(file.originalname).toLowerCase()
     if (allowedFileExtensions.includes(fileExtension)) {
       cb(null, true)
     } else {
