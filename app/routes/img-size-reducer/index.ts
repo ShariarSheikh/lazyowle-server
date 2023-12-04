@@ -3,9 +3,9 @@ import ApiResponse from '../../core/ApiResponse'
 import asyncHandler from '../../helpers/asyncHandler'
 import validator from '../../helpers/validator'
 import upload, { fileUploadFolderPath } from '../../middleware/multer'
-import sharp from 'sharp'
 import fs from 'fs'
 import getImageDimension from '../../helpers/getImageDimensions'
+import sharp from 'sharp'
 
 const imgSizeReducer = express.Router()
 
@@ -21,12 +21,16 @@ imgSizeReducer.post(
     const imgFilePath = `./${req.file.path}`
     const imgFileBuffer = fs.readFileSync(imgFilePath) // Read the image file
 
-    // get img dimension
     const imgDimension = await getImageDimension(imgFileBuffer)
     const imgBuffer = await sharp(imgFileBuffer)
       .resize({ width: imgDimension.width, height: imgDimension.height })
       .jpeg({ quality: 80 })
       .toBuffer()
+
+    // const imageFile = new File([Buffer.from(imgFileBuffer)], req.file.originalname, {
+    //   type: req.file.mimetype,
+    //   lastModified: Date.now()
+    // })
 
     // delete file
     fs.unlinkSync(imgFilePath)
