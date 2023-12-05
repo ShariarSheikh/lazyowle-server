@@ -13,7 +13,10 @@
     "lint:fix": "eslint . --ext .ts,.tsx --fix",
     "prettier": "prettier --check .",
     "prettier:fix": "prettier --write .",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "docker-build": "docker build -t lazyowleserver .",
+    "docker-run": "docker run -p 8000:8000 -d lazyowleserver .",
+    "docker-start": "yarn docker-build && yarn docker-run"
   },
   "keywords": [],
   "author": "",

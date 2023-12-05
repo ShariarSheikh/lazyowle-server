@@ -1,0 +1,15 @@
+version: '3.9'
+
+services:
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      PORT: 8000
+      environment: development
+    restart: always
+    ports:
+      - '8000:8000'
+    volumes:
+      - .:/app
